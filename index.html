@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Final Project</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <span>todo.app</span>
+      </nav>
+    </header>
+    <main id="board">
+      <div class="card" data-todo-name="todo">
+        <div class="card-header">
+          <h2>Todo</h2>
+          <button id="open-modal">Add</button>
+        </div>
+        <ul id="todo-list-container">
+          <!-- Todo list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card" data-todo-name="in_progress">
+        <div class="card-header">
+          <h2>In Progress</h2>
+        </div>
+        <ul id="inprogress-list-container">
+          <!-- In Progress list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card" data-todo-name="done">
+        <div class="card-header">
+          <h2>Done</h2>
+        </div>
+        <ul id="done-list-container">
+          <!-- Done list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card" data-todo-name="trash">
+        <div class="card-header">
+          <h2>Trash</h2>
+          <button id="clean-trash">Clean</button>
+        </div>
+        <ul id="trash-list-container">
+          <!-- Done list will be rendered from JavaScript -->
+        </ul>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal disable-pointer">
+        <div class="content">
+          <form>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                required
+                minlength="3"
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title..."
+              />
+              <p class="error" id="title-error">Title is required.</p>
+            </div>
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <textarea
+                minlength="5"
+                name="desc"
+                id="desc"
+                cols="30"
+                rows="5"
+                placeholder="Todo description.."
+                value=""
+              ></textarea>
+              <p class="error" id="desc-error">Description is required</p>
+            </div>
+            <div class="form-control">
+              <button id="btn-add">Add</button>
+              <button id="btn-close">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./app.js"></script>
+</html>
