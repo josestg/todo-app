@@ -8,10 +8,10 @@ const TODO = "TODO"
 const TRASH = "TRASH"
 
 const STATUS_COLOR = {
-  [TODO]: "red",
-  [IN_PROGRESS]: "green",
-  [DONE]: "blue",
-  [TRASH]: "orange",
+  [TODO]: "#F6E05E",
+  [IN_PROGRESS]: "#68D391",
+  [DONE]: "#63B3ED",
+  [TRASH]: "#F687B3",
 }
 
 //=========================================================
@@ -329,6 +329,40 @@ cleanTrashBtn.addEventListener("click", () => {
   cleanupTrash()
   const trashListContainer = document.getElementById("trash-list-container")
   trashListContainer.innerHTML = ""
+})
+
+// ========================================================
+// THEME
+// ========================================================
+const themeBtn = document.querySelector(".toggle-theme")
+const themesBox = document.querySelector(".themes")
+const themesOpt = document.querySelectorAll(".theme")
+
+const themeColors = [
+  "#718096",
+  "#F56565",
+  "#D69E2E",
+  "#38A169",
+  "#805AD5",
+  "#3182CE",
+  "#D53F8C",
+]
+
+themeBtn.addEventListener("click", () => {
+  themesBox.classList.toggle("show")
+  themesBox.classList.toggle("disable-pointer")
+  themesBox.classList.toggle("move-down")
+})
+
+themesOpt.forEach((item, i) => {
+  item.style.backgroundColor = themeColors[i]
+
+  item.addEventListener("click", (e) => {
+    themesBox.classList.toggle("show")
+    themesBox.classList.toggle("disable-pointer")
+    themesBox.classList.toggle("move-down")
+    document.body.style.backgroundColor = themeColors[i]
+  })
 })
 
 // ========================================================
